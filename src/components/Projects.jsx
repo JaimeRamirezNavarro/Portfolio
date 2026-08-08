@@ -143,7 +143,7 @@ export default function Projects({ onSelectProject }) {
                   }}
                 >
                   <Eye size={17} />
-                  <span>Explorar Ficha Técnica</span>
+                  <span>{project.category === 'recommended' ? '🛠️ Work in Progress' : 'Explorar Ficha Técnica'}</span>
                 </button>
 
                 <a
