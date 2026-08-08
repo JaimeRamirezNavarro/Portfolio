@@ -146,22 +146,24 @@ export default function Projects({ onSelectProject }) {
                   <span>{project.category === 'recommended' ? '🛠️ Work in Progress' : 'Explorar Ficha Técnica'}</span>
                 </button>
 
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-card-action"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    color: 'var(--text-primary)',
-                    border: '1px solid var(--border-color)',
-                    flex: '0 0 auto',
-                    padding: '0.75rem'
-                  }}
-                  title="Ver Repositorio GitHub"
-                >
-                  <GithubIcon size={18} />
-                </a>
+                {project.category !== 'recommended' && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-card-action"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      color: 'var(--text-primary)',
+                      border: '1px solid var(--border-color)',
+                      flex: '0 0 auto',
+                      padding: '0.75rem'
+                    }}
+                    title="Ver Repositorio GitHub"
+                  >
+                    <GithubIcon size={18} />
+                  </a>
+                )}
               </div>
             </div>
           );

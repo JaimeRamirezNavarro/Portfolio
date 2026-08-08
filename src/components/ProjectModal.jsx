@@ -90,12 +90,14 @@ export default function ProjectModal({ project, onClose }) {
             ))}
           </ul>
 
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <a href={project.githubUrl} target="_blank" rel="noreferrer" className="btn-primary" style={{ flex: 1 }}>
-              <GithubIcon size={18} />
-              <span>Ver Código en GitHub</span>
-            </a>
-          </div>
+          {project.category !== 'recommended' && (
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              <a href={project.githubUrl} target="_blank" rel="noreferrer" className="btn-primary" style={{ flex: 1 }}>
+                <GithubIcon size={18} />
+                <span>Ver Código en GitHub</span>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>
