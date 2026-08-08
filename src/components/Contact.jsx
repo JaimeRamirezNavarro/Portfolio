@@ -36,7 +36,7 @@ export default function Contact() {
         <div className="glass-card contact-info-card">
           <h3 style={{ fontSize: '1.4rem', marginBottom: '0.5rem' }}>Información de Contacto</h3>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-            Envíame un mensaje directo o contáctame a través de mis redes profesionales.
+            Envíame un mensaje directo o contáctame a través de mi correo electrónico.
           </p>
 
           <div className="contact-item">
@@ -56,21 +56,6 @@ export default function Contact() {
             <div>
               <div className="contact-label">Ubicación & Modalidad</div>
               <div className="contact-value">{personalInfo.location}</div>
-            </div>
-          </div>
-
-          <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--border-color)' }}>
-            <div className="contact-label" style={{ marginBottom: '0.75rem' }}>Redes Profesionales</div>
-            <div style={{ display: 'flex', gap: '0.75rem' }}>
-              <a href={personalInfo.github} target="_blank" rel="noreferrer" className="btn-secondary" style={{ padding: '0.6rem', borderRadius: '50%' }}>
-                <GithubIcon size={20} />
-              </a>
-              <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="btn-secondary" style={{ padding: '0.6rem', borderRadius: '50%' }}>
-                <LinkedinIcon size={20} />
-              </a>
-              <a href={personalInfo.twitter} target="_blank" rel="noreferrer" className="btn-secondary" style={{ padding: '0.6rem', borderRadius: '50%' }}>
-                <TwitterIcon size={20} />
-              </a>
             </div>
           </div>
         </div>
