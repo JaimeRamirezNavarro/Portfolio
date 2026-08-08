@@ -18,78 +18,84 @@ export default function Contact() {
         </p>
       </div>
 
-      <div style={{ maxWidth: '750px', margin: '0 auto' }}>
-        <div className="glass-card" style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-          <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.4rem' }}>Contacto Directo</h3>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>
-              Escríbeme o llámame directamente para cualquier consulta o propuesta laboral.
-            </p>
+      <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        {/* Email Card */}
+        <a
+          href={`mailto:${personalInfo.email}`}
+          className="glass-card"
+          style={{
+            padding: '1.5rem 2rem',
+            display: 'flex',
+            alignItems: 'center',
+            justify: 'space-between',
+            gap: '1.5rem',
+            textDecoration: 'none',
+            borderLeft: '4px solid var(--accent-cyan)',
+            flexWrap: 'wrap'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', minWidth: 0 }}>
+            <div className="contact-icon-box" style={{ width: '52px', height: '52px', color: 'var(--accent-cyan)', background: 'rgba(0, 242, 254, 0.1)', borderColor: 'rgba(0, 242, 254, 0.25)', flexShrink: 0 }}>
+              <Mail size={24} />
+            </div>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.2rem' }}>Correo Electrónico Directo</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)', whiteSpace: 'nowrap' }}>{personalInfo.email}</div>
+            </div>
           </div>
+          <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent-cyan)', display: 'flex', alignItems: 'center', gap: '0.35rem', background: 'rgba(0, 242, 254, 0.08)', padding: '0.45rem 0.9rem', borderRadius: '99px', border: '1px solid rgba(0, 242, 254, 0.25)', flexShrink: 0 }}>
+            <span>Enviar Email</span>
+            <ArrowUpRight size={16} />
+          </span>
+        </a>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
-            {/* Email Card */}
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="contact-item"
-              style={{
-                padding: '1.25rem',
-                borderRadius: '16px',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid var(--border-color)',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none'
-              }}
-            >
-              <div className="contact-icon-box" style={{ width: '48px', height: '48px' }}>
-                <Mail size={22} />
-              </div>
-              <div style={{ overflow: 'hidden' }}>
-                <div className="contact-label">Correo Electrónico</div>
-                <div className="contact-value" style={{ fontSize: '0.95rem', wordBreak: 'break-all' }}>{personalInfo.email}</div>
-              </div>
-            </a>
-
-            {/* Phone Card */}
-            <a
-              href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
-              className="contact-item"
-              style={{
-                padding: '1.25rem',
-                borderRadius: '16px',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid var(--border-color)',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none'
-              }}
-            >
-              <div className="contact-icon-box" style={{ width: '48px', height: '48px', background: 'rgba(16, 185, 129, 0.1)', borderColor: 'rgba(16, 185, 129, 0.25)', color: 'var(--accent-emerald)' }}>
-                <Phone size={22} />
-              </div>
-              <div>
-                <div className="contact-label">Teléfono / WhatsApp</div>
-                <div className="contact-value" style={{ fontSize: '0.95rem' }}>{personalInfo.phone}</div>
-              </div>
-            </a>
-          </div>
-
-          {/* Location Card */}
-          <div
-            className="contact-item"
-            style={{
-              padding: '1.25rem',
-              borderRadius: '16px',
-              background: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid var(--border-color)'
-            }}
-          >
-            <div className="contact-icon-box" style={{ width: '48px', height: '48px', background: 'rgba(139, 92, 246, 0.1)', borderColor: 'rgba(139, 92, 246, 0.25)', color: 'var(--accent-purple)' }}>
-              <MapPin size={22} />
+        {/* Phone Card */}
+        <a
+          href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
+          className="glass-card"
+          style={{
+            padding: '1.5rem 2rem',
+            display: 'flex',
+            alignItems: 'center',
+            justify: 'space-between',
+            gap: '1.5rem',
+            textDecoration: 'none',
+            borderLeft: '4px solid var(--accent-emerald)',
+            flexWrap: 'wrap'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', minWidth: 0 }}>
+            <div className="contact-icon-box" style={{ width: '52px', height: '52px', color: 'var(--accent-emerald)', background: 'rgba(16, 185, 129, 0.1)', borderColor: 'rgba(16, 185, 129, 0.25)', flexShrink: 0 }}>
+              <Phone size={24} />
             </div>
             <div>
-              <div className="contact-label">Ubicación & Disponibilidad</div>
-              <div className="contact-value" style={{ fontSize: '0.95rem' }}>{personalInfo.location}</div>
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.2rem' }}>Teléfono / WhatsApp</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>{personalInfo.phone}</div>
             </div>
+          </div>
+          <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '0.35rem', background: 'rgba(16, 185, 129, 0.08)', padding: '0.45rem 0.9rem', borderRadius: '99px', border: '1px solid rgba(16, 185, 129, 0.25)', flexShrink: 0 }}>
+            <span>Llamar</span>
+            <ArrowUpRight size={16} />
+          </span>
+        </a>
+
+        {/* Location Card */}
+        <div
+          className="glass-card"
+          style={{
+            padding: '1.5rem 2rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1.25rem',
+            borderLeft: '4px solid var(--accent-purple)'
+          }}
+        >
+          <div className="contact-icon-box" style={{ width: '52px', height: '52px', color: 'var(--accent-purple)', background: 'rgba(139, 92, 246, 0.1)', borderColor: 'rgba(139, 92, 246, 0.25)', flexShrink: 0 }}>
+            <MapPin size={24} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.2rem' }}>Ubicación & Disponibilidad</div>
+            <div style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)' }}>{personalInfo.location}</div>
           </div>
         </div>
       </div>
