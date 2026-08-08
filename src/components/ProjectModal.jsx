@@ -80,7 +80,7 @@ export default function ProjectModal({ project, onClose }) {
           )}
 
           {/* Highlights */}
-          <h3 style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>🛠️ Aspectos Técnicos Destacados</h3>
+          <h3 style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>Aspectos Técnicos Destacados</h3>
           <ul style={{ listStyle: 'none', display: 'grid', gap: '0.6rem', marginBottom: '2rem' }}>
             {project.highlights.map((item, idx) => (
               <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.925rem', color: 'var(--text-secondary)' }}>
