@@ -1,22 +1,8 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle, Sparkles } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, TwitterIcon } from './SocialIcons';
+import React from 'react';
+import { Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 4000);
-  };
-
   return (
     <section id="contact" className="section-container">
       <div className="section-title-wrapper">
@@ -28,89 +14,84 @@ export default function Contact() {
           ¿Hablamos de tu <span className="text-gradient">Próximo Proyecto?</span>
         </h2>
         <p className="section-description">
-          Estoy disponible para incorporación a equipos de desarrollo, consultoría técnica o proyectos freelance.
+          Estoy disponible para incorporación a equipos de desarrollo, oportunidades profesionales y proyectos de ingeniería.
         </p>
       </div>
 
-      <div className="contact-grid">
-        <div className="glass-card contact-info-card">
-          <h3 style={{ fontSize: '1.4rem', marginBottom: '0.5rem' }}>Información de Contacto</h3>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-            Envíame un mensaje directo o contáctame a través de mi correo electrónico.
-          </p>
-
-          <div className="contact-item">
-            <div className="contact-icon-box">
-              <Mail size={22} />
-            </div>
-            <div>
-              <div className="contact-label">Email Principal</div>
-              <div className="contact-value">{personalInfo.email}</div>
-            </div>
+      <div style={{ maxWidth: '750px', margin: '0 auto' }}>
+        <div className="glass-card" style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.4rem' }}>Contacto Directo</h3>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>
+              Escríbeme o llámame directamente para cualquier consulta o propuesta laboral.
+            </p>
           </div>
 
-          <div className="contact-item">
-            <div className="contact-icon-box" style={{ background: 'rgba(139, 92, 246, 0.1)', borderColor: 'rgba(139, 92, 246, 0.25)', color: 'var(--accent-purple)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
+            {/* Email Card */}
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="contact-item"
+              style={{
+                padding: '1.25rem',
+                borderRadius: '16px',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid var(--border-color)',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none'
+              }}
+            >
+              <div className="contact-icon-box" style={{ width: '48px', height: '48px' }}>
+                <Mail size={22} />
+              </div>
+              <div style={{ overflow: 'hidden' }}>
+                <div className="contact-label">Correo Electrónico</div>
+                <div className="contact-value" style={{ fontSize: '0.95rem', wordBreak: 'break-all' }}>{personalInfo.email}</div>
+              </div>
+            </a>
+
+            {/* Phone Card */}
+            <a
+              href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
+              className="contact-item"
+              style={{
+                padding: '1.25rem',
+                borderRadius: '16px',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid var(--border-color)',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none'
+              }}
+            >
+              <div className="contact-icon-box" style={{ width: '48px', height: '48px', background: 'rgba(16, 185, 129, 0.1)', borderColor: 'rgba(16, 185, 129, 0.25)', color: 'var(--accent-emerald)' }}>
+                <Phone size={22} />
+              </div>
+              <div>
+                <div className="contact-label">Teléfono / WhatsApp</div>
+                <div className="contact-value" style={{ fontSize: '0.95rem' }}>{personalInfo.phone}</div>
+              </div>
+            </a>
+          </div>
+
+          {/* Location Card */}
+          <div
+            className="contact-item"
+            style={{
+              padding: '1.25rem',
+              borderRadius: '16px',
+              background: 'rgba(255, 255, 255, 0.03)',
+              border: '1px solid var(--border-color)'
+            }}
+          >
+            <div className="contact-icon-box" style={{ width: '48px', height: '48px', background: 'rgba(139, 92, 246, 0.1)', borderColor: 'rgba(139, 92, 246, 0.25)', color: 'var(--accent-purple)' }}>
               <MapPin size={22} />
             </div>
             <div>
-              <div className="contact-label">Ubicación & Modalidad</div>
-              <div className="contact-value">{personalInfo.location}</div>
+              <div className="contact-label">Ubicación & Disponibilidad</div>
+              <div className="contact-value" style={{ fontSize: '0.95rem' }}>{personalInfo.location}</div>
             </div>
           </div>
         </div>
-
-        <form onSubmit={handleSubmit} className="glass-card contact-form">
-          <h3 style={{ fontSize: '1.4rem', marginBottom: '0.25rem' }}>Enviar Mensaje</h3>
-
-          {submitted && (
-            <div style={{ padding: '0.85rem 1rem', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem' }}>
-              <CheckCircle size={18} />
-              <span>¡Mensaje recibido con éxito! Te responderé muy pronto.</span>
-            </div>
-          )}
-
-          <div className="form-group">
-            <label className="form-label">Tu Nombre Completo</label>
-            <input
-              type="text"
-              required
-              className="form-input"
-              placeholder="Ej. Carlos Mendoza"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label">Correo Electrónico</label>
-            <input
-              type="email"
-              required
-              className="form-input"
-              placeholder="carlos@empresa.com"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label">Mensaje o Propuesta</label>
-            <textarea
-              required
-              rows={4}
-              className="form-textarea"
-              placeholder="Hola Sara, nos gustaría invitarte a una entrevista para un puesto de Software Engineer..."
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            />
-          </div>
-
-          <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>
-            <span>Enviar Mensaje</span>
-            <Send size={18} />
-          </button>
-        </form>
       </div>
     </section>
   );
