@@ -287,6 +287,16 @@ export const educationData = [
 ];
 
 export const languagesData = [
-  { language: "Español", level: "Nativo / Lengua materna" },
-  { language: "Inglés", level: "B2 (Comprensión auditiva / Listening) - B1 (Lectura, Conversación y Escritura)" }
+  {
+    language: "Español",
+    badge: "Lengua Materna",
+    description: "Dominio nativo completo tanto hablado como escrito.",
+    levels: ["Nativo"]
+  },
+  {
+    language: "Inglés",
+    badge: "B2 / B1 Técnico",
+    description: "Competencia profesional para lectura de documentación técnica, desarrollo y comunicación.",
+    levels: ["B2 Comprensión Auditiva (Listening)", "B1 Lectura, Conversación y Escritura"]
+  }
 ];

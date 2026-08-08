@@ -58,18 +58,30 @@ export default function Timeline() {
             ))}
           </div>
 
-          <h3 style={{ fontSize: '1.3rem', marginTop: '2.5rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--accent-emerald)' }}>
+          <h3 style={{ fontSize: '1.3rem', marginTop: '2.5rem', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--accent-emerald)' }}>
             <Globe2 size={20} />
             <span>Idiomas</span>
           </h3>
 
-          <div className="glass-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <div style={{ display: 'grid', gap: '1rem' }}>
             {languagesData.map((lang, idx) => (
-              <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.925rem' }}>
-                <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{lang.language}</span>
-                <span style={{ color: 'var(--accent-emerald)', fontWeight: 600, background: 'rgba(16, 185, 129, 0.1)', padding: '0.2rem 0.6rem', borderRadius: '8px', fontSize: '0.85rem' }}>
-                  {lang.level}
-                </span>
+              <div key={idx} className="glass-card" style={{ padding: '1.25rem', borderLeft: '4px solid var(--accent-emerald)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+                  <h4 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)' }}>{lang.language}</h4>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', fontWeight: 700, padding: '0.25rem 0.75rem', borderRadius: 'var(--radius-full)', background: 'rgba(16, 185, 129, 0.12)', color: 'var(--accent-emerald)', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+                    {lang.badge}
+                  </span>
+                </div>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '0.65rem', lineHeight: '1.5' }}>
+                  {lang.description}
+                </p>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  {lang.levels.map((item, i) => (
+                    <span key={i} style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-cyan)', background: 'rgba(0, 242, 254, 0.06)', padding: '0.25rem 0.65rem', borderRadius: '8px', border: '1px solid rgba(0, 242, 254, 0.2)' }}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
