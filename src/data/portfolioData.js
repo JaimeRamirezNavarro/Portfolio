@@ -1,8 +1,8 @@
 export const personalInfo = {
   name: "Jaime Ramírez Navarro",
-  title: "Desarrollador Web & Software Engineer (DAW)",
-  tagline: "Especializado en arquitecturas backend (Laravel, PHP, Python, Java), sistemas de observabilidad en tiempo real y bases de datos SQL.",
-  about: "Desarrollador curioso, proactivo y creativo con sólida formación en Desarrollo de Aplicaciones Web (DAW) en Cesur Cartuja y experiencia en CodeArtsSolution. Creador de Uptime Server (plataforma de observabilidad y telemetría en tiempo real) y con experiencia práctica en administración de sistemas Linux/ZimaBlade, Docker, WebSockets y desarrollo Full Stack.",
+  title: "Desarrollador Web & Software Engineer",
+  tagline: "Apasionado por la tecnología, la innovación en software y la creación de soluciones eficientes.",
+  about: "Soy un desarrollador activo, curioso, ambicioso y altamente creativo. Me apasiona el mundo de la informática, desde el hardware hasta el desarrollo de software moderno (Full Stack, Backend y Bases de Datos). Me caracteriza mi constante deseo de aprender, superar nuevos retos técnicos y aportar energía, ideas y compromiso en proyectos de alto impacto.",
   location: "Sevilla, España (Disponible para Trabajo Presencial, Remoto o Híbrido)",
   email: "Jaimeramireznavarro16@gmail.com",
   phone: "+34 654 21 13 69",
@@ -11,10 +11,10 @@ export const personalInfo = {
   twitter: "https://twitter.com",
   status: "🟢 Buscando Oportunidades como Desarrollador Web / Software Engineer",
   stats: [
-    { label: "Proyecto Destacado", value: "Uptime Server" },
-    { label: "Formación DAW", value: "EQF 5" },
+    { label: "Pasión por la Tech", value: "100%" },
+    { label: "Ambición & Crecimiento", value: "Full" },
     { label: "Tecnologías & Tools", value: "15+" },
-    { label: "Compromiso Técnico", value: "100%" }
+    { label: "Trabajo en Equipo", value: "100%" }
   ]
 };
 
