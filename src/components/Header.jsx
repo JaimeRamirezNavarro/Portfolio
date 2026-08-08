@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Code2, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Header({ theme, toggleTheme }) {
@@ -40,42 +40,82 @@ export default function Header({ theme, toggleTheme }) {
   ];
 
   return (
-    <header className={`header-nav ${scrolled ? 'scrolled' : ''}`}>
-      <a href="#home" className="brand-logo">
-        <div className="logo-badge">JR</div>
-        <span>Jaime <span className="text-gradient">Ramírez</span></span>
-      </a>
-
-      {/* Desktop Navigation */}
-      <nav>
-        <ul className="nav-links">
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <button
-          onClick={toggleTheme}
-          className="theme-toggle-btn"
-          title={`Cambiar a modo ${theme === 'dark' ? 'claro' : 'oscuro'}`}
-          aria-label="Cambiar tema de color"
-        >
-          {theme === 'dark' ? <Sun size={18} color="#f59e0b" /> : <Moon size={18} color="#6366f1" />}
-        </button>
-
-        <a href="#contact" className="btn-primary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}>
-          Contrátame
+    <>
+      <header className={`header-nav ${scrolled ? 'scrolled' : ''}`}>
+        <a href="#home" className="brand-logo">
+          <div className="logo-badge">JR</div>
+          <span>Jaime <span className="text-gradient">Ramírez</span></span>
         </a>
-      </div>
-    </header>
+
+        {/* Desktop Navigation */}
+        <nav className="desktop-nav">
+          <ul className="nav-links">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <button
+            onClick={toggleTheme}
+            className="theme-toggle-btn"
+            title={`Cambiar a modo ${theme === 'dark' ? 'claro' : 'oscuro'}`}
+            aria-label="Cambiar tema de color"
+          >
+            {theme === 'dark' ? <Sun size={18} color="#f59e0b" /> : <Moon size={18} color="#6366f1" />}
+          </button>
+
+          <a href="#contact" className="btn-primary desktop-cta" style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}>
+            Contrátame
+          </a>
+
+          {/* Mobile Menu Toggle Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-menu-btn"
+            aria-label="Abrir menú de navegación"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Menu Drawer */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu-drawer" onClick={() => setMobileMenuOpen(false)}>
+          <div className="glass-card mobile-menu-content" onClick={(e) => e.stopPropagation()}>
+            <ul className="mobile-nav-list">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#contact"
+              className="btn-primary"
+              style={{ width: '100%', marginTop: '1rem', textAlign: 'center' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contrátame
+            </a>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
