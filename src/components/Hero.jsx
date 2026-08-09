@@ -53,6 +53,9 @@ export default function Hero() {
               src="/avatar.png"
               alt="Jaime Ramírez Navarro - Software Engineer"
               className="avatar-img"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
             />
             <div className="project-preview-overlay" />
           </div>
