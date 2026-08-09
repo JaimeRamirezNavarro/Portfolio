@@ -54,7 +54,7 @@ export default function Hero() {
               alt="Jaime Ramírez Navarro - Software Engineer"
               className="avatar-img"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
               decoding="async"
             />
             <div className="project-preview-overlay" />
