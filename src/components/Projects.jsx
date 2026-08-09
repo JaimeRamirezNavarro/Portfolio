@@ -107,15 +107,7 @@ export default function Projects({ onSelectProject }) {
                 {/* Key Metrics Container */}
                 <div className="project-metrics-container">
                   {project.metrics.map((metric, idx) => (
-                    <span
-                      key={idx}
-                      className="metric-chip"
-                      style={{
-                        background: 'rgba(0, 242, 254, 0.06)',
-                        border: '1px solid rgba(0, 242, 254, 0.18)',
-                        color: 'var(--accent-cyan)'
-                      }}
-                    >
+                    <span key={idx} className="metric-chip">
                       <Zap size={12} />
                       <span>{metric}</span>
                     </span>
@@ -136,8 +128,8 @@ export default function Projects({ onSelectProject }) {
                   onClick={() => onSelectProject(project)}
                   className="btn-card-action"
                   style={{
-                    background: `linear-gradient(135deg, ${cardGlow} 0%, #3b82f6 100%)`,
-                    color: '#0f172a',
+                    background: `linear-gradient(135deg, ${cardGlow} 0%, #2563eb 100%)`,
+                    color: '#ffffff',
                     fontWeight: 700,
                     padding: '0.75rem 1.25rem'
                   }}
